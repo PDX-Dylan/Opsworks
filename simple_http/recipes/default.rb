@@ -3,12 +3,14 @@
 # Recipe:: default
 #
 # Copyright:: 2020, The Authors, All Rights Reserved.
-package 'httpd'
+['httpd','php'].each do |p|
+package p do
+    action :install
+  end
+end
 
 service 'httpd' do
   action [:enable, :start]
 end
 
-template '/var/www/html/index.html' do  
-  source 'index.html.erb'
-end
+
