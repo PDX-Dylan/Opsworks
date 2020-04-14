@@ -1,7 +1,12 @@
 include_recipe '::services'
 
+city = search("aws_opsworks_app", "environment:Portland").first
+
 template '/var/www/html/index.php' do 
   source 'index.php.erb'
+  variables(
+  :city => city
+)
   notifies :restart, resources(:service => 'httpd')
   not_if { File.exist?('/var/www/html/index.html') }
 end 
