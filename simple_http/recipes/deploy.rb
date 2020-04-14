@@ -3,14 +3,12 @@ include_recipe '::services'
 #city = search("aws_opsworks_app", "environment:Portland").first
 app = search(:aws_opsworks_app).first
 city = app['environment']['Portland']
-source = app['app_source']['url']
 
 
 template '/var/www/html/index.php' do 
   source 'index.php.erb'
   variables(
-    :city => city,
-    :app => source
+    :city => city
   
 )
   notifies :restart, resources(:service => 'httpd')
