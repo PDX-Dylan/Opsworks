@@ -1,4 +1,4 @@
-include_recipe 'simple_http::services'
+include_recipe '::services'
 
 template '/var/www/html/index.php' do 
   source 'index.php.erb'

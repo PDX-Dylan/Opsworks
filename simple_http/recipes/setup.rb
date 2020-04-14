@@ -3,8 +3,8 @@
 # Recipe:: default
 #
 # Copyright:: 2020, The Authors, All Rights Reserved.
-include_recipe 'simple_http::intall'
-include_recipe 'simple_http::services'
+include_recipe  '::intall'
+include_recipe '::services'
 
 service 'httpd' do
   action [:enable, :start]
