@@ -1,6 +1,8 @@
+include_recipe 'simple_http::services'
+
 template '/var/www/html/index.php' do 
   source 'index.php.erb'
-  notifies :restart, "service['httpd']"
+  notifies :restart, resources(:service => 'httpd')
   not_if { File.exist?('/var/www/html/index.html') }
 end 
 
@@ -9,6 +11,4 @@ template '/var/www/html/index.html' do
   not_if { File.exist?('/var/www/html/index.php') }
 end
 
-service 'httpd' do
-  action [:restart, :enable, :start]
-end
+ 
