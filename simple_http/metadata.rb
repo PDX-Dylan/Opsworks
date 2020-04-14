@@ -16,4 +16,4 @@ chef_version '>= 12.0'
 # `View Source` link will be displayed on this cookbook's page when uploaded to
 # a Supermarket.
 #
-# source_url 'https://github.com/<insert_org_here>/simple_http'
+source_url 'https://github.com/PDX-Dylan/Opsworks.git/simple_http'
